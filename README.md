@@ -1,24 +1,25 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A small repo to illustrate a problem with raising deprecation messages from inside templates.
 
-Things you may want to cover:
 
-* Ruby version
+* Pull down the repo
+* Run a server with `rails s`
+* Visit <http://localhost:3000>
+* Check the console
 
-* System dependencies
+You'll see a deprecation warning like this:
 
-* Configuration
+```
+DEPRECATION WARNING: `deprecated_option` is deprecated. Please use `new_option` instead.
+(called from public_send at .../actionview-7.0.8/lib/action_view/base.rb:244)
+```
 
-* Database creation
+It points at Rails internals insted of at something in the app.
 
-* Database initialization
+It would be nice if the message were more like:
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+DEPRECATION WARNING: `deprecated_option` is deprecated. Please use `new_option` instead.
+(called from render at ./app/view/home/index.html.erb:4)
+```
