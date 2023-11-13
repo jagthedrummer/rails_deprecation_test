@@ -1,0 +1,12 @@
+<%
+if defined?(deprecated_option)
+    ActiveSupport::Deprecation.warn(
+      "`deprecated_option` is deprecated. Please use `new_option` instead."
+    )
+    puts "----------------------------------------------"
+    puts caller.join("\n")
+    puts "----------------------------------------------"
+end
+%>
+
+<h1>just a test</h1>
